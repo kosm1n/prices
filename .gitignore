@@ -1,0 +1,14 @@
+.idea
+.settings
+.classpath
+.factorypath
+target
+*.iml
+true
+.java-version
+.DS_Store
+.project
+.vscode/
+/site/**
+hs_err_pid*.log
+/src/main/resources/application-local.yml
