@@ -1,0 +1,54 @@
+package akkodis.tryout.prices.domain.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.UUID;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Entity
+@Table(name = "prices")
+@Builder
+@EntityListeners(AuditingEntityListener.class)
+@AllArgsConstructor
+@NoArgsConstructor
+public class Price {
+
+    @Id
+    @Column(name = "id")
+    private UUID id;
+
+    @Column(name = "brand_id")
+    private Integer brandId;
+
+    @Column(name = "start_date")
+    private LocalDateTime startDate;
+
+    @Column(name = "end_date")
+    private LocalDateTime endDate;
+
+    @Column(name = "price_list")
+    private Integer priceList;
+
+    @Column(name = "product_id")
+    private Integer productId;
+
+    @Column(name = "priority")
+    private Integer priority;
+
+    @Column(name = "price")
+    private BigDecimal price;
+
+    @Column(name = "curr")
+    private String curr;
+
+}
