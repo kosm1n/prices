@@ -26,7 +26,7 @@ public class PricesController {
     public ResponseEntity<List<PricesDto>> getPrices(@RequestParam(name = "applicationDate") String applicationDate,
                                                      @RequestParam(name = "productId") Integer productId,
                                                      @RequestParam(name = "brandId") Integer brandId) {
-
+        log.info("PricesController - Get Prices by {} - {} - {}", applicationDate, productId, brandId);
         return ResponseEntity.ok(pricesToPricesDtoMapper.toPricesDto(
                 pricesService.getPrices(LocalDateTimeConverter.parseDateTime(applicationDate), productId, brandId)));
     }

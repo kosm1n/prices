@@ -7,13 +7,11 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
 @AllArgsConstructor
-@Transactional
 @Slf4j
 public class H2DbPricesRepository implements PricesRepository {
 
@@ -23,7 +21,7 @@ public class H2DbPricesRepository implements PricesRepository {
 
     @Override
     public List<Prices> getPrices(LocalDateTime applicationDate, Integer productId, Integer brandId) {
-        log.info("Find PricesEntities by ");
+        log.info("H2DbPricesRepository - Get Prices by {} - {} - {}", applicationDate, productId, brandId);
         return pricesEntityToPricesMapper.toPrices(
                 pricesEntityRepository.findByStartDateLessThanEqualAndEndDateGreaterThanEqualAndProductIdAndBrandId(applicationDate, applicationDate, productId, brandId));
     }
