@@ -63,6 +63,14 @@ paths:
                   $ref: '#/components/schemas/Prices'
         '400':
           description: Invalid status value
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Error'
+        '500':
+          description: Internarl Server Error
 
 components:
   schemas:
@@ -104,3 +112,26 @@ components:
         curr:
           type: string
           example: "EUR"
+    Error:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          example: "2023-01-31T16:38:59.693+00:00"
+        status:
+          type: integer
+          format: int64
+          example: 400
+        error:
+          type: string
+          example: "Bad Request"
+        exception:
+          type: string
+          example: "org.springframework.web.bind.MissingServletRequestParameterException"
+        message:
+          type: string
+          example: "Required request parameter 'brandId' for method parameter type Integer is not present"
+        path:
+          type: string
+          example: "/prices"
