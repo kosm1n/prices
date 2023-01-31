@@ -8,6 +8,7 @@ class PricesEntityApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }
