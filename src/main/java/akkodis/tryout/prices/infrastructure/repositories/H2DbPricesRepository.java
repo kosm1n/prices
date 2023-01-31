@@ -24,6 +24,7 @@ public class H2DbPricesRepository implements PricesRepository {
     @Override
     public List<Prices> getPrices(LocalDateTime applicationDate, Integer productId, Integer brandId) {
         log.info("Find PricesEntities by ");
-        return pricesEntityToPricesMapper.toPrices(pricesEntityRepository.findByStartDateLessThanEqualAndEndDateGreaterThanEqualAndProductIdAndBrandId(applicationDate, applicationDate, productId, brandId));
+        return pricesEntityToPricesMapper.toPrices(
+                pricesEntityRepository.findByStartDateLessThanEqualAndEndDateGreaterThanEqualAndProductIdAndBrandId(applicationDate, applicationDate, productId, brandId));
     }
 }
