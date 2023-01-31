@@ -10,7 +10,7 @@ import java.util.Map;
 
 @Component
 @Slf4j
-public class PricesErrorAttributes extends DefaultErrorAttributes {
+public class PricesErrorAttributes extends DefaultErrorAttributes  {
 
     private static final String TRACE = "trace";
     @Override

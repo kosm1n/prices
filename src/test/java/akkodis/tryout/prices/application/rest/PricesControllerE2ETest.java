@@ -8,15 +8,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.util.AssertionErrors;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
-import javax.transaction.Transactional;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@Transactional
+
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -28,7 +28,7 @@ class PricesControllerE2ETest {
 
     // Test 1
     @Test
-    void givenARequestToGetPrices_whenApplicationDateIs2020_06_14_10_00_00AndProductIdIs_35455AndBrandIdIs_1_thenReturnAListOfPricesWithWithSize1() throws Exception {
+    void givenARequestToGetPrices_whenApplicationDateIs2020_06_14_10_00_00AndProductIdIs_35455AndBrandIdIs_1_thenReturn200OkAndAListOfPricesWithWithSize1() throws Exception {
 
         // Arrange
 
@@ -53,7 +53,7 @@ class PricesControllerE2ETest {
 
     // Test 2
     @Test
-    void givenARequestToGetPrices_whenApplicationDateIs2020_06_14_16_00_00AndProductIdIs_35455AndBrandIdIs_1_thenReturnAListOfPricesWithWithSize2() throws Exception {
+    void givenARequestToGetPrices_whenApplicationDateIs2020_06_14_16_00_00AndProductIdIs_35455AndBrandIdIs_1_thenReturn200OkAndAListOfPricesWithWithSize2() throws Exception {
 
         // Arrange
 
@@ -87,7 +87,7 @@ class PricesControllerE2ETest {
 
     // Test 3
     @Test
-    void givenARequestToGetPrices_whenApplicationDateIs2020_06_14_21_00_00AndProductIdIs_35455AndBrandIdIs_1_thenReturnAListOfPricesWithWithSize1() throws Exception {
+    void givenARequestToGetPrices_whenApplicationDateIs2020_06_14_21_00_00AndProductIdIs_35455AndBrandIdIs_1_thenReturn200OkAndAListOfPricesWithWithSize1() throws Exception {
 
         // Arrange
 
@@ -112,7 +112,7 @@ class PricesControllerE2ETest {
 
     // Test 4
     @Test
-    void givenARequestToGetPrices_whenApplicationDateIs2020_06_15_10_00_00AndProductIdIs_35455AndBrandIdIs_1_thenReturnAListOfPricesWithWithSize2() throws Exception {
+    void givenARequestToGetPrices_whenApplicationDateIs2020_06_15_10_00_00AndProductIdIs_35455AndBrandIdIs_1_thenReturn200OkAndAListOfPricesWithWithSize2() throws Exception {
 
         // Arrange
 
@@ -146,7 +146,7 @@ class PricesControllerE2ETest {
 
     // Test 5
     @Test
-    void givenARequestToGetPrices_whenApplicationDateIs2020_06_16_21_00_00AndProductIdIs_35455AndBrandIdIs_1_thenReturnAListOfPricesWithWithSize2() throws Exception {
+    void givenARequestToGetPrices_whenApplicationDateIs2020_06_16_21_00_00AndProductIdIs_35455AndBrandIdIs_1_thenReturn200OkAndAListOfPricesWithWithSize2() throws Exception {
 
         // Arrange
 
@@ -176,6 +176,19 @@ class PricesControllerE2ETest {
                 .andExpect(jsonPath("$[1].price").value("38.95"))
                 .andExpect(jsonPath("$[1].curr").value("EUR"));
 
+    }
+
+    @Test
+    void givenARequestToGetPrices_whenApplicationDateIsNullAndProductIdIs_35455AndBrandIdIs_1_thenReturn400BadRequestAndErrorDetails() throws Exception {
+
+        // Arrange
+
+        // Act
+        ResultActions result = mvc.perform(MockMvcRequestBuilders.get("/prices?productId=35455&brandId=1").contentType(MediaType.APPLICATION_JSON));
+
+        // Assert
+        AssertionErrors.assertEquals("Status", 400, result.andReturn().getResponse().getStatus());
+        AssertionErrors.assertEquals("Message", "Required request parameter 'applicationDate' for method parameter type String is not present", result.andReturn().getResponse().getErrorMessage());
     }
 
 }
