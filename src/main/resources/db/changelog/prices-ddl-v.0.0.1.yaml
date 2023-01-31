@@ -45,7 +45,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: price
-                  type: number
+                  type: float
                   constraints:
                     nullable: false
               - column:

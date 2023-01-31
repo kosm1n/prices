@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.math.BigDecimal;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -41,7 +41,7 @@ public class PricesDto {
     private Integer priority;
 
     @JsonProperty("price")
-    private BigDecimal price;
+    private Float price;
 
     @JsonProperty("curr")
     private String curr;
