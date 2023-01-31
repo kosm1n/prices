@@ -15,7 +15,7 @@ public class PricesErrorAttributes extends DefaultErrorAttributes  {
     private static final String TRACE = "trace";
     @Override
     public Map<String, Object> getErrorAttributes(WebRequest webRequest, ErrorAttributeOptions options) {
-        Map<String, Object> errorAttributes = super.getErrorAttributes(webRequest, options.including(ErrorAttributeOptions.Include.values()));
+        final Map<String, Object> errorAttributes = super.getErrorAttributes(webRequest, options.including(ErrorAttributeOptions.Include.values()));
         log.error("Error! Trace: {}", errorAttributes.get(TRACE));
         errorAttributes.remove(TRACE);
         return errorAttributes;
