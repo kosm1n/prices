@@ -9,6 +9,7 @@
    * Maven version 3.6.3
    * H2 in memory
    * Liquibase
+   * Hexagonal Architecture
 
 ## Console Run
 

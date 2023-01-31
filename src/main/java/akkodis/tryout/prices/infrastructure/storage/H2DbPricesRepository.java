@@ -1,8 +1,8 @@
-package akkodis.tryout.prices.infrastructure.repositories;
+package akkodis.tryout.prices.infrastructure.storage;
 
 import akkodis.tryout.prices.domain.model.Prices;
 import akkodis.tryout.prices.domain.repositories.PricesRepository;
-import akkodis.tryout.prices.infrastructure.repositories.mapper.PricesEntityToPricesMapper;
+import akkodis.tryout.prices.infrastructure.storage.mapper.PricesEntityToPricesMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

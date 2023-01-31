@@ -1,6 +1,6 @@
-package akkodis.tryout.prices.infrastructure.repositories;
+package akkodis.tryout.prices.infrastructure.storage;
 
-import akkodis.tryout.prices.infrastructure.repositories.entities.PricesEntity;
+import akkodis.tryout.prices.infrastructure.storage.entities.PricesEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

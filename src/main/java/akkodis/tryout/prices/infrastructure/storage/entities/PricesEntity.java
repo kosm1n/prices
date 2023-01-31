@@ -1,4 +1,4 @@
-package akkodis.tryout.prices.infrastructure.repositories.entities;
+package akkodis.tryout.prices.infrastructure.storage.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
