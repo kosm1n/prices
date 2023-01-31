@@ -2,7 +2,6 @@ package akkodis.tryout.prices.application.rest.mapper;
 
 import akkodis.tryout.prices.application.rest.dto.PricesDto;
 import akkodis.tryout.prices.domain.model.Prices;
-import akkodis.tryout.prices.infrastructure.repositories.entities.PricesEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.util.CollectionUtils;
