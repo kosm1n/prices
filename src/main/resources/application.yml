@@ -19,3 +19,6 @@ spring:
     change-log: classpath:/db/changelog/db.changelog-master.yaml
     user: sa
     password:
+  jpa:
+    hibernate:
+      ddl-auto: update
