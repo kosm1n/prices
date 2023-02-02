@@ -10,5 +10,5 @@ import java.util.UUID;
 
 @Repository
 public interface PricesEntityRepository extends JpaRepository<PricesEntity, UUID> {
-    List<PricesEntity> findByStartDateLessThanEqualAndEndDateGreaterThanEqualAndProductIdAndBrandId(LocalDateTime applicationDateStart, LocalDateTime applicationDateEnd, Integer productId, Integer brandId);
+    List<PricesEntity> findByStartDateLessThanEqualAndEndDateGreaterThanEqualAndProductIdAndBrandIdOrderByPriorityDesc(LocalDateTime applicationDateStart, LocalDateTime applicationDateEnd, Integer productId, Integer brandId);
 }
